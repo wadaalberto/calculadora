@@ -1,0 +1,37 @@
+{
+  "expo": {
+    "name": "Calculadora de Taxas",
+    "slug": "calculadora-taxas",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./resources/app-icon.png",
+    "userInterfaceStyle": "light",
+    "splash": {
+      "image": "./resources/app-icon.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#ffffff"
+    },
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.calculadora.taxas"
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./resources/app-icon.png",
+        "backgroundColor": "#ffffff"
+      },
+      "package": "com.calculadora.taxas",
+      "versionCode": 1
+    },
+    "web": {
+      "favicon": "./resources/app-icon.png",
+      "bundler": "webpack"
+    },
+    "plugins": [
+      "@expo/webpack-config/web-plugin"
+    ]
+  }
+}
