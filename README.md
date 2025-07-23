@@ -1,77 +1,74 @@
-# Calculadora de Taxas
+# Calculadora de Taxas - Mobile App
 
-Uma calculadora de taxas para pagamentos com diferentes formas de pagamento.
+Uma calculadora de taxas para dispositivos móveis, desenvolvida com React e Expo.
 
-## Como gerar o APK
+## 🚀 Como gerar o APK
 
 ### Pré-requisitos
-1. **Android Studio** instalado
-2. **Java JDK 11 ou superior**
-3. **Android SDK** configurado
+1. Conta no Expo (gratuita): https://expo.dev/signup
+2. EAS CLI instalado globalmente
 
-### Passos para gerar o APK
+### Passos para gerar o APK:
 
-1. **Instalar dependências:**
+1. **Login no Expo**
    ```bash
-   npm install
+   eas login
    ```
 
-2. **Fazer build da aplicação:**
+2. **Configurar o projeto**
    ```bash
-   npm run build
+   eas build:configure
    ```
 
-3. **Sincronizar com o Capacitor:**
+3. **Gerar o APK**
    ```bash
-   npx cap sync android
+   eas build --platform android --profile preview
    ```
 
-4. **Abrir no Android Studio:**
-   ```bash
-   npx cap open android
-   ```
+4. **Aguardar o build**
+   - O processo será executado na nuvem
+   - Você receberá um link para download do APK
+   - O build leva aproximadamente 5-10 minutos
 
-5. **No Android Studio:**
-   - Aguarde o projeto carregar completamente
-   - Vá em `Build` → `Build Bundle(s) / APK(s)` → `Build APK(s)`
-   - Ou use o atalho: `Ctrl+Shift+A` e digite "Build APK"
+### Comandos úteis:
 
-6. **Localizar o APK:**
-   - O APK será gerado em: `android/app/build/outputs/apk/debug/app-debug.apk`
+- `npm start` - Inicia o servidor de desenvolvimento
+- `npm run android` - Abre no emulador Android
+- `npm run web` - Abre no navegador
+- `eas build:list` - Lista todos os builds
+- `eas build --platform android --profile preview --clear-cache` - Build com cache limpo
 
-### Gerar APK assinado para produção
+### Perfis de Build:
 
-1. **Criar keystore (primeira vez):**
-   ```bash
-   keytool -genkey -v -keystore calculadora-release-key.keystore -alias calculadora -keyalg RSA -keysize 2048 -validity 10000
-   ```
+- **preview**: Gera APK para testes (não precisa de assinatura)
+- **production**: Gera AAB para Google Play Store (precisa de assinatura)
 
-2. **No Android Studio:**
-   - Vá em `Build` → `Generate Signed Bundle / APK`
-   - Selecione `APK`
-   - Escolha o keystore criado
-   - Selecione `release` como build type
+### Estrutura do Projeto:
 
-### Comandos úteis
+```
+├── src/
+│   └── App.tsx          # Componente principal da calculadora
+├── resources/
+│   └── app-icon.png     # Ícone do aplicativo
+├── app.json             # Configurações do Expo
+├── eas.json             # Configurações do EAS Build
+└── package.json         # Dependências e scripts
+```
 
-- **Atualizar após mudanças no código:**
-  ```bash
-  npm run build && npx cap sync android
-  ```
+### Funcionalidades:
 
-- **Ver logs do dispositivo:**
-  ```bash
-  npx cap run android
-  ```
+- ✅ Calculadora de taxas com diferentes formas de pagamento
+- ✅ Suporte a parcelamento
+- ✅ Interface responsiva
+- ✅ Formatação de moeda brasileira
+- ✅ Toggle para repassar taxas
+- ✅ Teclado numérico integrado
 
-- **Limpar cache:**
-  ```bash
-  npx cap clean android
-  ```
+### Troubleshooting:
 
-## Estrutura do Projeto
+Se houver problemas com o build:
+1. Verifique se está logado: `eas whoami`
+2. Limpe o cache: `--clear-cache`
+3. Verifique as configurações em `eas.json`
 
-- `src/` - Código fonte da aplicação React
-- `android/` - Projeto Android nativo gerado pelo Capacitor
-- `dist/` - Build da aplicação web
-- `capacitor.config.ts` - Configurações do Capacitor
+Para mais informações: https://docs.expo.dev/build/setup/

@@ -4,10 +4,10 @@
     "slug": "calculadora-taxas",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./resources/app-icon.png",
+    "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",
     "splash": {
-      "image": "./resources/app-icon.png",
+      "image": "./assets/splash.png",
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
@@ -20,18 +20,18 @@
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./resources/app-icon.png",
+        "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
       },
       "package": "com.calculadora.taxas",
       "versionCode": 1
     },
     "web": {
-      "favicon": "./resources/app-icon.png",
-      "bundler": "webpack"
+      "favicon": "./assets/favicon.png",
+      "bundler": "metro"
     },
     "plugins": [
-      "@expo/webpack-config/web-plugin"
+      "expo-router"
     ]
   }
 }
